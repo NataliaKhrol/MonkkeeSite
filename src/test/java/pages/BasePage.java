@@ -18,9 +18,9 @@ public class BasePage {
     WebDriver driver;
     WebDriverWait wait;
 
-    public static final String BASE_URL = "https://my.monkkee.com/#/";
+    public static final String BASE_URL = "https://my.monkkee.com/en/";
 
-    BasePage(WebDriver driver) {
+    public BasePage(WebDriver driver) {
 
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
