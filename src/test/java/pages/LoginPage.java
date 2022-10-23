@@ -7,7 +7,7 @@ public class LoginPage extends BasePage {
     public LoginPage(WebDriver driver) {
         super(driver);
     }
-    public void Login(){
+    public void login(){
         driver.findElement(By.xpath("//a[contains(text(),'To my account')]")).click();
     }
 }

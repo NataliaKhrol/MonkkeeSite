@@ -10,7 +10,7 @@ import static org.testng.Assert.assertTrue;
 public class LoginTest extends BaseTest {
     @Test
     public void forgotPassword() {
-        driver.get("https://www.monkkee.com/en/");
+        driver.get("monkkee.url");
         driver.findElement(By.xpath("//a[contains(text(),'To my account')]")).click();
         driver.findElement(By.xpath("//a[contains(text(),'Send password reminder')]")).click();
         boolean isSwitched = driver.findElement(By.xpath("//h1[contains(text(),'Send yourself a password reminder')]")).isDisplayed();
