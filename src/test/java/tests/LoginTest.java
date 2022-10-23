@@ -8,6 +8,19 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 public class LoginTest extends BaseTest {
+
+    @Test
+    public void correctLogin() {
+        loginPage.login("monkkee.user", "monkkee.password");
+        assertTrue(loginPage.open(), "Login failed");
+    }
+
+    @Test
+    public void emptyFields() {
+        loginPage.login(" ", " ");
+        assertTrue(loginPage.failOpen(), "There are necessary fields to be filled in");
+    }
+
     @Test
     public void forgotPassword() {
         driver.get("monkkee.url");

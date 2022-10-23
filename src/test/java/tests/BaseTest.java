@@ -12,6 +12,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import pages.BasePage;
+import pages.EntriesPage;
 import pages.LoginPage;
 import utils.PropertyReader;
 
@@ -23,6 +24,7 @@ public class BaseTest {
     WebDriver driver;
     BasePage basePage;
     LoginPage loginPage;
+    EntriesPage entriesPage;
     String user;
     String password;
 
@@ -51,6 +53,7 @@ public class BaseTest {
 
         loginPage = new LoginPage(driver);
         basePage = new BasePage(driver);
+        entriesPage = new EntriesPage();
 
     }
 
