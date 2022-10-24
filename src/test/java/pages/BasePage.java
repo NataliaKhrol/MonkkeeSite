@@ -2,6 +2,7 @@ package pages;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
@@ -13,12 +14,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
-
+@Data
 public class BasePage {
     WebDriver driver;
     WebDriverWait wait;
 
-    public static final String BASE_URL = "https://my.monkkee.com/en/";
+    public static final String BASE_URL = "https://monkkee.com/en/";
 
     public BasePage(WebDriver driver) {
 

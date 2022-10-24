@@ -14,6 +14,7 @@ import org.testng.annotations.Parameters;
 import pages.BasePage;
 import pages.EntriesPage;
 import pages.LoginPage;
+import pages.SupportPage;
 import utils.PropertyReader;
 
 
@@ -25,13 +26,14 @@ public class BaseTest {
     BasePage basePage;
     LoginPage loginPage;
     EntriesPage entriesPage;
+    SupportPage supportPage;
     String user;
     String password;
 
 
     @Parameters({"browser"})
     @BeforeMethod
-    public void setup(String browser, ITestContext testContext) {
+    public void setup(@Optional("chrome") String browser, ITestContext testContext) {
         if (browser.equals("chrome")) {
             WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
@@ -53,14 +55,15 @@ public class BaseTest {
 
         loginPage = new LoginPage(driver);
         basePage = new BasePage(driver);
-        entriesPage = new EntriesPage();
+        supportPage = new SupportPage(driver);
+        entriesPage = new EntriesPage(driver);
 
     }
 
     @AfterMethod(alwaysRun = true)
     public void close() {
         if (driver != null) {
-            driver.quit();
+         //   driver.quit();
         }
     }
 }
