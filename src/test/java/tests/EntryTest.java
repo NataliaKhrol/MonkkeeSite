@@ -13,6 +13,6 @@ public class EntryTest extends BaseTest {
         loginPage.openPage();
         loginPage.login(user, password);
         entriesPage.entryData();
-        assertEquals("BRR", "LIEBE DICH GROSSE", entriesPage.checkEntry());
+        assertEquals("The message was not published", "Es ist etwas Schönes, sein eigenes Bild im liebenden Auge zu erblicken.", entriesPage.checkEntry());
     }
 }

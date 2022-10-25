@@ -22,7 +22,7 @@ public class EntriesPage extends BasePage {
 
         driver.findElement(ENTRY_FIELD).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[class=\"cke_toolbar cke_toolbar_last\"]")));
-        driver.findElement(ENTRY_INFO).sendKeys("LIEBE DICH GROSSE");
+        driver.findElement(ENTRY_INFO).sendKeys("Es ist etwas Schönes, sein eigenes Bild im liebenden Auge zu erblicken.");
         wait.until(ExpectedConditions.invisibilityOfElementWithText(SAVE_BUTTON, "unsaved"));
         driver.findElement(BACK_BUTTON).click();
     }
