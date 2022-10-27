@@ -23,4 +23,11 @@ public class HomeTest extends BaseTest {
         assertEquals(homePage.allertMessage(),"Do you really want to delete the tag? All entries related to the tag remain unchanged.");
 
     }
+    @Test
+    public void createTags() {
+        loginPage.openPage();
+        loginPage.login(user, password);
+        homePage.createTag("Schone");
+        assertEquals(homePage.isCreated(), "Schone", "OPs");
+    }
 }
