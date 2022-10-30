@@ -31,6 +31,7 @@ public class BaseTest {
     EntriesPage entriesPage;
     SupportPage supportPage;
     HomePage homePage;
+    EditTextPage editTextPage;
     String user;
     String password;
 
@@ -68,6 +69,7 @@ public class BaseTest {
         supportPage = new SupportPage(driver);
         entriesPage = new EntriesPage(driver);
         homePage = new HomePage(driver);
+        editTextPage = new EditTextPage(driver);
 
     }
 
