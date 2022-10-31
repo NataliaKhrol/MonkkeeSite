@@ -25,6 +25,11 @@ public class EntryTest extends BaseTest {
         loginPage.login(user, password);
         entriesPage.entryData();
         entriesPage.mark();
-        new EditTextPage(driver).create("Underline", "Bold", "Insert/Remove Bulleted List", "Pale Red");
+        new EditTextPage(driver).create
+                ("Underline", "Bold", "Insert/Remove Bulleted List",
+                        "Text Color", "Bright Blue");
     }
 }
+// new EditTextPage(driver).create
+//                ("Underline", "Bold", "Insert/Remove Bulleted List",
+//                        "Text Color", "Bright Blue", "Background Color", "Bright Silver");
