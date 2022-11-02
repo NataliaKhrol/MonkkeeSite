@@ -12,10 +12,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestContext;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.*;
 import pages.*;
 import utils.PropertyReader;
 
@@ -25,6 +22,7 @@ import java.time.Instant;
 import java.util.concurrent.TimeUnit;
 
 @Log4j2
+@Listeners(TestListener.class)
 public class BaseTest {
 
     WebDriver driver;
@@ -48,10 +46,9 @@ public class BaseTest {
         }
     }
 
-
     @Parameters({"browser"})
     @BeforeMethod(description = "Opening the browser")
-    public void setup(@Optional("chrome") String browser, ITestContext testContext) {
+    public void setup(@Optional("chrome") String browser, ITestContext context) {
         if (browser.equals("chrome")) {
             WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
@@ -66,7 +63,7 @@ public class BaseTest {
         user = PropertyReader.getProperty("monkkee.user");
         password = PropertyReader.getProperty("monkkee.password");
 
-        testContext.setAttribute("driver", driver);
+        context.setAttribute("driver", driver);
 
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -77,7 +74,6 @@ public class BaseTest {
         entriesPage = new EntriesPage(driver);
         homePage = new HomePage(driver);
         editTextPage = new EditTextPage(driver);
-
     }
 
     @AfterMethod(alwaysRun = true, description = "Closing the browser")
