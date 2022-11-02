@@ -10,7 +10,7 @@ import static org.testng.AssertJUnit.assertEquals;
 
 public class EntryTest extends BaseTest {
 
-    @Test
+    @Test(description= "Entry the info to the dairy")
     public void publishInfo() {
         loginPage.openPage();
         loginPage.login(user, password);
@@ -19,13 +19,13 @@ public class EntryTest extends BaseTest {
         assertEquals("The message was not published", "Es ist etwas Schönes, sein eigenes Bild im liebenden Auge zu erblicken.", entriesPage.checkEntry());
     }
 
-    @Test
+    @Test(description = "Changing the fonts, sizes, colors")
     public void editEntry() {
         loginPage.openPage();
         loginPage.login(user, password);
         entriesPage.entryData();
         entriesPage.mark();
-        new EditTextPage(driver).create
+        new EditTextPage( driver).create
                 ("Underline", "Bold", "Insert/Remove Bulleted List",
                         "Text Color", "Bright Blue");
     }

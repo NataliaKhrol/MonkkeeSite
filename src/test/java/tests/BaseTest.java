@@ -2,6 +2,7 @@ package tests;
 
 import com.codeborne.selenide.Configuration;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -23,6 +24,7 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.concurrent.TimeUnit;
 
+@Log4j2
 public class BaseTest {
 
     WebDriver driver;
@@ -35,15 +37,20 @@ public class BaseTest {
     String user;
     String password;
 
-    void popupBlock(){
-        if (driver.findElement(By.cssSelector("[class=\"modal-body\"]")).isDisplayed()){
-           new WebDriverWait(driver, Duration.ofSeconds(5))
-                   .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(),'Cancel')]"))).click();
+    void closePopUpIfDisplayed() {
+        log.debug("Start checking random message");
+        if (driver.findElement(By.cssSelector("[class=\"modal-body\"]")).isDisplayed()) {
+            log.debug("Random popup is displayed");
+            new WebDriverWait(driver, Duration.ofSeconds(5))
+                    .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(),'Cancel')]"))).click();
+        } else {
+            log.debug("Random popup IS NOT displayed");
         }
     }
 
+
     @Parameters({"browser"})
-    @BeforeMethod
+    @BeforeMethod(description = "Opening the browser")
     public void setup(@Optional("chrome") String browser, ITestContext testContext) {
         if (browser.equals("chrome")) {
             WebDriverManager.chromedriver().setup();
@@ -73,10 +80,10 @@ public class BaseTest {
 
     }
 
-    @AfterMethod(alwaysRun = true)
+    @AfterMethod(alwaysRun = true, description = "Closing the browser")
     public void close() {
         if (driver != null) {
-         //   driver.quit();
+           //   driver.quit();
         }
     }
 

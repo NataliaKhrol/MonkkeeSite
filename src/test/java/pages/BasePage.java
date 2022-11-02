@@ -15,6 +15,7 @@ import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 @Data
+@Log4j2
 public class BasePage {
     WebDriver driver;
     WebDriverWait wait;
@@ -27,6 +28,8 @@ public class BasePage {
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
 
+
+
     public void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
@@ -35,3 +38,13 @@ public class BasePage {
     }
 }
 
+   /* public void closePopUpIfDisplayed() {
+        log.debug("Start checking random message");
+        if (driver. findElement(By.cssSelector("[class=\"modal-body\"]")).isDisplayed()) {
+            log.debug("Random popup is displayed");
+            new WebDriverWait(driver, Duration.ofSeconds(5))
+                    .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(),'Cancel')]"))).click();
+        } else {
+            log.debug("Random popup IS NOT displayed");
+        }
+    }*/

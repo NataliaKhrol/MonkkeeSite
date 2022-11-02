@@ -7,7 +7,7 @@ import static org.testng.Assert.assertTrue;
 
 public class HomeTest extends BaseTest {
 
-    @Test
+    @Test(description = "Checking the Search field")
     public void search() {
         loginPage.openPage();
         loginPage.login(user, password);
@@ -15,7 +15,7 @@ public class HomeTest extends BaseTest {
         assertTrue(homePage.isFound(), "The search has failed");
     }
 
-    @Test
+    @Test(description = "Checking the tag removal")
     public void Tags() {
         loginPage.openPage();
         loginPage.login(user, password);
@@ -23,7 +23,7 @@ public class HomeTest extends BaseTest {
         assertEquals(homePage.allertMessage(),"Do you really want to delete the tag? All entries related to the tag remain unchanged.");
 
     }
-    @Test
+    @Test(description = "Checking the tag placement")
     public void createTags() {
         loginPage.openPage();
         loginPage.login(user, password);

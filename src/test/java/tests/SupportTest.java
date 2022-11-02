@@ -10,7 +10,7 @@ import static org.testng.Assert.assertTrue;
 @Log4j2
 public class SupportTest extends BaseTest {
 
-    @Test
+    @Test(description = "Checking the redirection to Support department")
     public void switchSupport() {
         loginPage.openPage();
         supportPage.switchSupport();

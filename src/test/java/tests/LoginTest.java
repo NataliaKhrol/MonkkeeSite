@@ -11,14 +11,15 @@ import static org.testng.Assert.assertTrue;
 @Log4j2
 public class LoginTest extends BaseTest {
 
-    @Test
+    @Test(description = "Checking users authorization")
     public void correctLogin() {
         loginPage.openPage();
         loginPage.login(user, password);
+        //basePage.closePopUpIfDisplayed();
         assertTrue(loginPage.open(), "Login failed");
     }
 
-    @Test
+    @Test(description = "Checking the authorization when the required fields are left unfilled")
     public void emptyFields() {
         loginPage.openPage();
         loginPage.login(" ", " ");
@@ -26,7 +27,7 @@ public class LoginTest extends BaseTest {
         assertTrue(loginPage.failOpen(), "There are necessary fields to be filled in");
     }
 
-    @Test
+    @Test(description = "Checking the password recovery")
     public void forgotPassword() {
         loginPage.openPage();
         driver.findElement(By.xpath("//a[contains(text(),'To my account')]")).click();
@@ -35,7 +36,7 @@ public class LoginTest extends BaseTest {
         assertTrue(isSwitched, "Page not found");
     }
 
-    @Test
+    @Test(description = "Checking the registration of new users")
     public void registerFirst() {
         loginPage.openPage();
         loginPage.registrationCheck();
