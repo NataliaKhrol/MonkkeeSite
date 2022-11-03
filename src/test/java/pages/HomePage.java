@@ -33,6 +33,7 @@ public class HomePage extends BasePage {
     }
 
 
+    //TODO remove comments
     public void manageTags() {
         driver.findElement(MANAGE_TAG).click();
         driver.findElement(DELETE_TAG).click();

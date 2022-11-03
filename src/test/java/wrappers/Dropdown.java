@@ -16,8 +16,8 @@ public class Dropdown {
 
     public void chooseHeading() {
         driver.findElement(By.cssSelector("[href=\"javascript:void('Paragraph Format')\"]")).click();
-     // driver.switchTo().frame(0);
-        driver.findElement(By.xpath("//a[@href=\"javascript:void('Paragraph Format')\"]/..//span[@class=\"cke_combo_text\"]"));
+        driver.switchTo().frame(0);
+        driver.findElement(By.xpath("//a[@title='Heading 1']"));
     }
 }
 

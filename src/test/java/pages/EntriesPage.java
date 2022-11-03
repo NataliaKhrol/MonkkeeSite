@@ -18,6 +18,7 @@ public class EntriesPage extends BasePage {
         super(driver);
     }
 
+    //TODO удалить @Test
     @Test
     public void entryData() {
 

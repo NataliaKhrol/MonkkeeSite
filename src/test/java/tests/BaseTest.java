@@ -52,6 +52,7 @@ public class BaseTest {
         if (browser.equals("chrome")) {
             WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
+            //TODO add headless
             // options.setHeadless(true);
             driver = new ChromeDriver(options);
         } else if (browser.equals("firefox")) {
@@ -76,6 +77,7 @@ public class BaseTest {
         editTextPage = new EditTextPage(driver);
     }
 
+    //TODO uncomment
     @AfterMethod(alwaysRun = true, description = "Closing the browser")
     public void close() {
         if (driver != null) {

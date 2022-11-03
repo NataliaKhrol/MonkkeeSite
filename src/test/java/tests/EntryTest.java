@@ -1,5 +1,6 @@
 package tests;
 
+//TODO remove imports
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.testng.annotations.Test;
@@ -14,6 +15,7 @@ public class EntryTest extends BaseTest {
     public void publishInfo() {
         loginPage.openPage();
         loginPage.login(user, password);
+        //TODO параметризовать мтеод
         entriesPage.entryData();
         entriesPage.saveData();
         assertEquals("The message was not published", "Es ist etwas Schönes, sein eigenes Bild im liebenden Auge zu erblicken.", entriesPage.checkEntry());
@@ -24,7 +26,9 @@ public class EntryTest extends BaseTest {
         loginPage.openPage();
         loginPage.login(user, password);
         entriesPage.entryData();
+        //TODO rename to selectAll()
         entriesPage.mark();
+        //TODO hide initialization into BaseTest
         new EditTextPage( driver).create
                 ("Underline", "Bold", "Insert/Remove Bulleted List",
                         "Text Color", "Bright Blue");

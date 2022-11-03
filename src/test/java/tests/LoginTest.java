@@ -23,6 +23,7 @@ public class LoginTest extends BaseTest {
     public void emptyFields() {
         loginPage.openPage();
         loginPage.login(" ", " ");
+        //TODO remove logger
         log.error("All the fields should be filled in correctly");
         assertTrue(loginPage.failOpen(), "There are necessary fields to be filled in");
     }
@@ -30,6 +31,7 @@ public class LoginTest extends BaseTest {
     @Test(description = "Checking the password recovery")
     public void forgotPassword() {
         loginPage.openPage();
+        //TODO  what driver does here?
         driver.findElement(By.xpath("//a[contains(text(),'To my account')]")).click();
         driver.findElement(By.xpath("//a[contains(text(),'Send password reminder')]")).click();
         boolean isSwitched = driver.findElement(By.xpath("//h1[contains(text(),'Send yourself a password reminder')]")).isDisplayed();
@@ -40,6 +42,7 @@ public class LoginTest extends BaseTest {
     public void registerFirst() {
         loginPage.openPage();
         loginPage.registrationCheck();
+        //TODO remove logger
         log.error("The link to a Registration form is not active");
         assertTrue(loginPage.registration(), "Registration failed");
 

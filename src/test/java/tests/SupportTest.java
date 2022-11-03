@@ -14,6 +14,7 @@ public class SupportTest extends BaseTest {
     public void switchSupport() {
         loginPage.openPage();
         supportPage.switchSupport();
+        //TODO remove logger
         log.error("The link 'Support' is not active");
         supportPage.supportpageOpen();
     }

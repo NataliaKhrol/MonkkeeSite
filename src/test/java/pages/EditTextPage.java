@@ -10,6 +10,7 @@ public class EditTextPage extends BasePage {
         super(driver);
     }
 
+    //TODO make separate methods to work with options
     public void create(String label, String label2, String label3, String label4, String label5) {
         new Option(label, driver).select();
         new Option(label2, driver).select();
