@@ -15,13 +15,16 @@ public class Dropdown {
     }
 
     public void chooseHeading() {
-      //  driver.findElement(By.cssSelector("[class=\"cke_combo_arrow\"]\n")).click();
         driver.findElement(By.cssSelector("[href=\"javascript:void('Paragraph Format')\"]")).click();
      // driver.switchTo().frame(0);
         driver.findElement(By.xpath("//a[@href=\"javascript:void('Paragraph Format')\"]/..//span[@class=\"cke_combo_text\"]"));
-        // driver.findElement(By.xpath(String.format("//a[@title=\"%s\"]", label))).click();
     }
+}
 
+    //[class="cke_combo_text"]
+    //span[contains(text(),'Heading 1')]
+    //  driver.findElement(By.cssSelector("[class=\"cke_combo_arrow\"]\n")).click();
+    // driver.findElement(By.xpath(String.format("//a[@title=\"%s\"]", label))).click();
   /*  public void chooseColor() {
         //   driver.findElement(By.cssSelector(String.format("[href=\"javascript:void('%s')\"]", label))).click();
         //  driver.switchTo().frame(0);
@@ -29,4 +32,3 @@ public class Dropdown {
         driver.switchTo().defaultContent();
     }*/
 
-}
