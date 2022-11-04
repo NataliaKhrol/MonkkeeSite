@@ -18,24 +18,22 @@ public class EntriesPage extends BasePage {
         super(driver);
     }
 
-    //TODO удалить @Test
-    @Test
     public void entryData() {
 
         driver.findElement(ENTRY_FIELD).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[class=\"cke_toolbar cke_toolbar_last\"]")));
         driver.findElement(ENTRY_INFO).sendKeys("Es ist etwas Schönes, sein eigenes Bild im liebenden Auge zu erblicken.");
-
     }
-    public void saveData(){
+
+    public void saveData() {
         wait.until(ExpectedConditions.invisibilityOfElementWithText(SAVE_BUTTON, "unsaved"));
         driver.findElement(BACK_BUTTON).click();
     }
-    public void mark() {
-       // String element =
-                driver.findElement(ENTRY_INFO).sendKeys(Keys.CONTROL+"a");
-       // element.sendKeys(Keys.CONTROL+"a");
 
+    public void selectAll() {
+        // String element =
+        driver.findElement(ENTRY_INFO).sendKeys(Keys.CONTROL + "a");
+        // element.sendKeys(Keys.CONTROL+"a");
     }
 
     public String checkEntry() {

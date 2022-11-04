@@ -1,8 +1,10 @@
 package pages;
 
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+@Log4j2
 public class LoginPage extends BasePage {
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -16,6 +18,7 @@ public class LoginPage extends BasePage {
     private By WARNING_MESSAGE = By.xpath("//div[contains(text(),'Mandatory field')]");
     private By REGISTER_REQUIRED = By.xpath("//a[contains(text(),'Register')]");
     private By REGISTRATION_FORM = By.xpath("//h1[contains(text(),'Registration')]");
+    private By PASSWORD_REMINDER = By.xpath("//a[contains(text(),'Send password reminder')]");
 
 
     public void openPage() {
@@ -36,6 +39,7 @@ public class LoginPage extends BasePage {
     }
 
     public boolean failOpen() {
+        log.error("All the fields should be filled in correctly");
         return driver.findElement(WARNING_MESSAGE).isDisplayed();
     }
 
@@ -45,6 +49,16 @@ public class LoginPage extends BasePage {
     }
 
     public boolean registration() {
+        log.error("The link to a Registration form is not active");
         return driver.findElement(REGISTRATION_FORM).isDisplayed();
+    }
+
+    public void passwordRecovery() {
+        driver.findElement(ACCOUNT_BUTTON).click();
+        driver.findElement(PASSWORD_REMINDER).click();
+    }
+
+    public boolean passwordReminderSent() {
+        return driver.findElement(By.xpath("//h1[contains(text(),'Send yourself a password reminder')]")).isDisplayed();
     }
 }

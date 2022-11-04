@@ -16,15 +16,12 @@ public class Dropdown {
 
     public void chooseHeading() {
         driver.findElement(By.cssSelector("[href=\"javascript:void('Paragraph Format')\"]")).click();
-        driver.switchTo().frame(0);
+        driver.switchTo().frame(1);
         driver.findElement(By.xpath("//a[@title='Heading 1']"));
     }
 }
 
-    //[class="cke_combo_text"]
-    //span[contains(text(),'Heading 1')]
-    //  driver.findElement(By.cssSelector("[class=\"cke_combo_arrow\"]\n")).click();
-    // driver.findElement(By.xpath(String.format("//a[@title=\"%s\"]", label))).click();
+
   /*  public void chooseColor() {
         //   driver.findElement(By.cssSelector(String.format("[href=\"javascript:void('%s')\"]", label))).click();
         //  driver.switchTo().frame(0);

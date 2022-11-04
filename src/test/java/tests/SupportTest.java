@@ -1,11 +1,8 @@
 package tests;
 
 import lombok.extern.log4j.Log4j2;
-import org.openqa.selenium.By;
-import org.openqa.selenium.interactions.Actions;
-import org.testng.annotations.Test;
 
-import static org.testng.Assert.assertTrue;
+import org.testng.annotations.Test;
 
 @Log4j2
 public class SupportTest extends BaseTest {
@@ -14,9 +11,7 @@ public class SupportTest extends BaseTest {
     public void switchSupport() {
         loginPage.openPage();
         supportPage.switchSupport();
-        //TODO remove logger
-        log.error("The link 'Support' is not active");
-        supportPage.supportpageOpen();
+        supportPage.supportPageOpen();
     }
 }
 

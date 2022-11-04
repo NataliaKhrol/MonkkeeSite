@@ -1,17 +1,12 @@
 package tests;
 
-//TODO remove imports
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.testng.annotations.Test;
 import pages.EditTextPage;
-
-import static org.testng.Assert.assertTrue;
 import static org.testng.AssertJUnit.assertEquals;
 
 public class EntryTest extends BaseTest {
 
-    @Test(description= "Entry the info to the dairy")
+    @Test(description = "Entry the info to the dairy")
     public void publishInfo() {
         loginPage.openPage();
         loginPage.login(user, password);
@@ -26,10 +21,9 @@ public class EntryTest extends BaseTest {
         loginPage.openPage();
         loginPage.login(user, password);
         entriesPage.entryData();
-        //TODO rename to selectAll()
-        entriesPage.mark();
+        entriesPage.selectAll();
         //TODO hide initialization into BaseTest
-        new EditTextPage( driver).create
+        new EditTextPage(driver).create
                 ("Underline", "Bold", "Insert/Remove Bulleted List",
                         "Text Color", "Bright Blue");
     }

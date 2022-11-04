@@ -1,11 +1,7 @@
 package pages;
 
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.Test;
-
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class HomePage extends BasePage {
 
@@ -32,30 +28,31 @@ public class HomePage extends BasePage {
         return driver.findElement(SEARCH_RESULT).isDisplayed();
     }
 
-
     //TODO remove comments
-    public void manageTags() {
+    public void deleteTags() {
         driver.findElement(MANAGE_TAG).click();
         driver.findElement(DELETE_TAG).click();
     }
 
     public String allertMessage() {
-      return driver.switchTo().alert().getText();
+        return driver.switchTo().alert().getText();
     }
- public void createTag(String bb) {
+
+    public void createTag(String bb) {
         driver.findElement(ENTRY_FIELD).click();
         driver.findElement(TAG_CREATE).sendKeys(bb);
         driver.findElement(NEW_TAG).click();
- }
-        public String isCreated() {
-        return driver.findElement(TAG_CHOICE).getText();
-        }
-
-        public void feedMonkkee() {
-
-        }
-       // Alert alert = getWebDriver().switchTo().alert();
-      //  String alertText = alert.getText();
-      //  System.out.println(alertText);
     }
+
+    public String isCreated() {
+        return driver.findElement(TAG_CHOICE).getText();
+    }
+
+    public void feedMonkkee() {
+
+    }
+    // Alert alert = getWebDriver().switchTo().alert();
+    //  String alertText = alert.getText();
+    //  System.out.println(alertText);
+}
 

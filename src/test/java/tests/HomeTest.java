@@ -16,15 +16,13 @@ public class HomeTest extends BaseTest {
     }
 
     @Test(description = "Checking the tag removal")
-    //TODO rename test method
-    public void Tags() {
+    public void editTags() {
         loginPage.openPage();
         loginPage.login(user, password);
-        //TODO rename into deleteTags()
-        homePage.manageTags();
-        assertEquals(homePage.allertMessage(),"Do you really want to delete the tag? All entries related to the tag remain unchanged.");
-
+        homePage.deleteTags();
+        assertEquals(homePage.allertMessage(), "Do you really want to delete the tag? All entries related to the tag remain unchanged.");
     }
+
     @Test(description = "Checking the tag placement")
     public void createTags() {
         loginPage.openPage();

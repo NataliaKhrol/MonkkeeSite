@@ -1,19 +1,12 @@
 package pages;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
 
-import java.util.ArrayList;
-import java.util.Set;
-
+@Log4j2
 public class SupportPage extends BasePage {
     public SupportPage(WebDriver driver) {
         super(driver);
@@ -26,7 +19,8 @@ public class SupportPage extends BasePage {
         builder.moveToElement(driver.findElement(By.xpath("//a[contains(text(),'FAQ / Support')]"))).click().perform();
     }
 
-    public boolean supportpageOpen() {
+    public boolean supportPageOpen() {
+        log.error("The link 'Support' is not active");
         return driver.findElement(PAGE_LOGO).isDisplayed();
     }
 }
