@@ -20,7 +20,7 @@ public class HomeTest extends BaseTest {
         loginPage.openPage();
         loginPage.login(user, password);
         homePage.deleteTags();
-        assertEquals(homePage.allertMessage(), "Do you really want to delete the tag? All entries related to the tag remain unchanged.");
+        assertEquals(homePage.alertMessage(), "Do you really want to delete the tag? All entries related to the tag remain unchanged.");
     }
 
     @Test(description = "Checking the tag placement")

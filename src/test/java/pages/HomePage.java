@@ -38,7 +38,7 @@ public class HomePage extends BasePage {
         driver.findElement(DELETE_TAG).click();
     }
 
-    public String allertMessage() {
+    public String alertMessage() {
         return driver.switchTo().alert().getText();
     }
 

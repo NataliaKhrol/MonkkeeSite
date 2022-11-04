@@ -1,7 +1,9 @@
 package tests;
 
 import lombok.extern.log4j.Log4j2;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
 import static org.testng.Assert.assertTrue;
 
 @Log4j2
@@ -11,15 +13,17 @@ public class LoginTest extends BaseTest {
     public void correctLogin() {
         loginPage.openPage();
         loginPage.login(user, password);
-        //basePage.closePopUpIfDisplayed();
+     //   basePage.closePopUpIfDisplayed();
         assertTrue(loginPage.open(), "Login failed");
     }
 
-    @Test(description = "Checking the authorization when the required fields are left unfilled")
-    public void emptyFields() {
+    @Test(dataProvider = "Data for negative authorization tests",
+            description = "Checking the authorization when the required fields are left unfilled")
+    public void negativeAuthorization(String user, String password, String error) {
         loginPage.openPage();
-        loginPage.login(" ", " ");
-        assertTrue(loginPage.failOpen(), "There are necessary fields to be filled in");
+        loginPage.login(user, password);
+       // basePage.closePopUpIfDisplayed();
+        assertTrue(loginPage.failOpen(), error);
     }
 
     @Test(description = "Checking the password recovery")
@@ -36,4 +40,15 @@ public class LoginTest extends BaseTest {
         assertTrue(loginPage.registration(), "Registration failed");
 
     }
+
+    @DataProvider(name = "Data for negative authorization tests")
+    public Object[][] loginData() {
+        return new Object[][]{
+                {"", "", "There are necessary fields to be filled in"},
+                {"", "dfgzdfgzfdgzfv", "There are necessary fields to be filled in"},
+                {" ", " ", "There are necessary fields to be filled in"},
+                {"849846854", "", "There are necessary fields to be filled in"}
+        };
+    }
 }
+

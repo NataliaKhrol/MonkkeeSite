@@ -35,11 +35,10 @@ public class BasePage {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize(); //открывает браузер в полном окне
     }
-}
 
-   /* public void closePopUpIfDisplayed() {
+  /*  public void closePopUpIfDisplayed() {
         log.debug("Start checking random message");
-        if (driver. findElement(By.cssSelector("[class=\"modal-body\"]")).isDisplayed()) {
+        if (driver.findElement(By.cssSelector("[class=\"modal-body\"]")).isDisplayed()) {
             log.debug("Random popup is displayed");
             new WebDriverWait(driver, Duration.ofSeconds(5))
                     .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(),'Cancel')]"))).click();
@@ -47,3 +46,5 @@ public class BasePage {
             log.debug("Random popup IS NOT displayed");
         }
     }*/
+}
+

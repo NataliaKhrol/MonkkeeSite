@@ -45,5 +45,7 @@ public class EntriesPage extends BasePage {
         String dairyEntry = driver.findElement(TEXT_PRINT).getText();
         return dairyEntry;
     }
+
+
 }
 //Отформатировать и переменные и собака тест убрать
