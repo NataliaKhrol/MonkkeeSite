@@ -20,7 +20,7 @@ public class LoginPage extends BasePage {
     private By REGISTER_REQUIRED = By.xpath("//a[contains(text(),'Register')]");
     private By REGISTRATION_FORM = By.xpath("//h1[contains(text(),'Registration')]");
     private By PASSWORD_REMINDER = By.xpath("//a[contains(text(),'Send password reminder')]");
-
+    private By SEND_REMINDER = By.xpath("//h1[contains(text(),'Send yourself a password reminder')]");
 
     public void openPage() {
 
@@ -63,6 +63,6 @@ public class LoginPage extends BasePage {
     }
 
     public boolean passwordReminderSent() {
-        return driver.findElement(By.xpath("//h1[contains(text(),'Send yourself a password reminder')]")).isDisplayed();
+        return driver.findElement(SEND_REMINDER).isDisplayed();
     }
 }

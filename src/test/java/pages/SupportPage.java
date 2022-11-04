@@ -13,10 +13,12 @@ public class SupportPage extends BasePage {
     }
 
     private By PAGE_LOGO = By.xpath("//a[contains(text(),'Help Desk')]");
+    private By SUPPORT_BUTTON = By.xpath("//a[contains(text(),'FAQ / Support')]");
+
 
     public void switchSupport() {
         Actions builder = new Actions(driver);
-        builder.moveToElement(driver.findElement(By.xpath("//a[contains(text(),'FAQ / Support')]"))).click().perform();
+        builder.moveToElement(driver.findElement(SUPPORT_BUTTON)).click().perform();
     }
 
     public boolean supportPageOpen() {
