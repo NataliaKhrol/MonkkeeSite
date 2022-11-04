@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import wrappers.ColorChooser;
 import wrappers.Dropdown;
@@ -10,16 +11,22 @@ public class EditTextPage extends BasePage {
         super(driver);
     }
 
-    //TODO make separate methods to work with options
-    public void create(String label, String label2, String label3, String label4, String label5) {
+    @Step("Change the style of the words")
+    public void createStyle(String label, String label2, String label3) {
         new Option(label, driver).select();
         new Option(label2, driver).select();
         new Option(label3, driver).select();
-        new ColorChooser(label4, driver).chooseField();
-        new ColorChooser(label5, driver).chooseColor();
-        new Dropdown(driver).chooseHeading();
-     //   new ColorChooser(label6, driver).chooseField();
-    //    new ColorChooser(label7, driver).chooseColor();
+    }
 
+    @Step("Change the color of the words")
+    public void changeColor(String label1, String label2) {
+        new ColorChooser(label1, driver).chooseField();
+        new ColorChooser(label2, driver).chooseColor();
+    }
+
+    @Step("Create new heading style")
+    public void changeHeading(String label) {
+        new Dropdown(driver).chooseHeading(label);
     }
 }
+

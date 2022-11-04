@@ -23,9 +23,11 @@ public class EntryTest extends BaseTest {
         entriesPage.entryData();
         entriesPage.selectAll();
         //TODO hide initialization into BaseTest
-        new EditTextPage(driver).create
-                ("Underline", "Bold", "Insert/Remove Bulleted List",
-                        "Text Color", "Bright Blue");
+        new EditTextPage(driver).createStyle(
+                "Underline", "Bold", "Insert/Remove Bulleted List");
+        new EditTextPage(driver).changeColor("Text Color", "Bright Blue");
+        new EditTextPage(driver).changeColor("Text Color", "Bright Blue");
+        new EditTextPage(driver).changeHeading("Heading 1");
     }
 }
 // new EditTextPage(driver).create

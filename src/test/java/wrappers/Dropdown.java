@@ -14,10 +14,10 @@ public class Dropdown {
         this.text = text;
     }
 
-    public void chooseHeading() {
+    public void chooseHeading(String label) {
         driver.findElement(By.cssSelector("[href=\"javascript:void('Paragraph Format')\"]")).click();
         driver.switchTo().frame(1);
-        driver.findElement(By.xpath("//a[@title='Heading 1']"));
+        driver.findElement(By.xpath(String.format("//a[@title='%$']", label)));
     }
 }
 

@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -19,6 +20,7 @@ public class HomePage extends BasePage {
         super(driver);
     }
 
+    @Step("Commit search by word")
     public void search(String searchText) {
         driver.findElement(SEARCH_FIELD).sendKeys(searchText);
         driver.findElement(SEARCH_BUTTON).click();
@@ -29,6 +31,8 @@ public class HomePage extends BasePage {
     }
 
     //TODO remove comments
+
+    @Step("Delete tags in the dairy entry")
     public void deleteTags() {
         driver.findElement(MANAGE_TAG).click();
         driver.findElement(DELETE_TAG).click();
@@ -38,6 +42,7 @@ public class HomePage extends BasePage {
         return driver.switchTo().alert().getText();
     }
 
+    @Step("Create new tags in the dairy entry")
     public void createTag(String bb) {
         driver.findElement(ENTRY_FIELD).click();
         driver.findElement(TAG_CREATE).sendKeys(bb);

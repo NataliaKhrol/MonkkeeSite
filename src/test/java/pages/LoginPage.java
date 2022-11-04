@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -26,6 +27,7 @@ public class LoginPage extends BasePage {
         driver.get(BASE_URL);
     }
 
+    @Step("Login by {email} and {password}")
     public void login(String user, String password) {
         driver.findElement(ACCOUNT_BUTTON).click();
         driver.findElement(USER_ENTRY).sendKeys(user);
@@ -43,6 +45,7 @@ public class LoginPage extends BasePage {
         return driver.findElement(WARNING_MESSAGE).isDisplayed();
     }
 
+    @Step("Register new user")
     public void registrationCheck() {
         driver.findElement(ACCOUNT_BUTTON).click();
         driver.findElement(REGISTER_REQUIRED).click();
@@ -53,6 +56,7 @@ public class LoginPage extends BasePage {
         return driver.findElement(REGISTRATION_FORM).isDisplayed();
     }
 
+    @Step("Recover the password if forgotten")
     public void passwordRecovery() {
         driver.findElement(ACCOUNT_BUTTON).click();
         driver.findElement(PASSWORD_REMINDER).click();
