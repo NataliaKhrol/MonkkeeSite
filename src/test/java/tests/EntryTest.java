@@ -1,5 +1,6 @@
 package tests;
 
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.EditTextPage;
@@ -14,6 +15,7 @@ public class EntryTest extends BaseTest {
         loginPage.login(user, password);
         entriesPage.entryData();
         entriesPage.saveData();
+
         assertEquals(error, text, entriesPage.checkEntry());
     }
 
@@ -38,6 +40,15 @@ public class EntryTest extends BaseTest {
                         "Es ist etwas Schönes, sein eigenes Bild im liebenden Auge zu erblicken."},
         };
     }
+
+ /*  @Test
+    public void attachFile(){
+        loginPage.openPage();
+        loginPage.login(user, password);
+        entriesPage.switchToEntry();
+        new EditTextPage(driver).attachFile();
+
+    }*/
 }
 // new EditTextPage(driver).create
 //                ("Underline", "Bold", "Insert/Remove Bulleted List",

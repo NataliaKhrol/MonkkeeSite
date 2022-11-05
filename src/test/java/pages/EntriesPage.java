@@ -28,6 +28,11 @@ public class EntriesPage extends BasePage {
         driver.findElement(ENTRY_INFO).sendKeys("Es ist etwas Schönes, sein eigenes Bild im liebenden Auge zu erblicken.");
     }
 
+    public void  switchToEntry(){
+        driver.findElement(ENTRY_FIELD).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(ENTRY_AREA));
+    }
+
     @Step("Save new entry")
     public void saveData() {
         wait.until(ExpectedConditions.invisibilityOfElementWithText(SAVE_BUTTON, "unsaved"));

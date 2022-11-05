@@ -4,6 +4,7 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import wrappers.ColorChooser;
 import wrappers.Dropdown;
+//import wrappers.FileAttach;
 import wrappers.Option;
 
 public class EditTextPage extends BasePage {
@@ -28,5 +29,9 @@ public class EditTextPage extends BasePage {
     public void changeHeading(String label) {
         new Dropdown(driver).chooseHeading(label);
     }
+
+  /*  public void attachFile(){
+        new FileAttach(driver).attach();
+    }*/
 }
 
