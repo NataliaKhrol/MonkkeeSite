@@ -41,14 +41,14 @@ public class EntryTest extends BaseTest {
         };
     }
 
- /*  @Test
-    public void attachFile(){
+    @Test
+    public void attachFile() {
         loginPage.openPage();
         loginPage.login(user, password);
         entriesPage.switchToEntry();
         new EditTextPage(driver).attachFile();
 
-    }*/
+    }
 }
 // new EditTextPage(driver).create
 //                ("Underline", "Bold", "Insert/Remove Bulleted List",
