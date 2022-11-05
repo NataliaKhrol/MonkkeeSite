@@ -19,7 +19,7 @@ public class EntryTest extends BaseTest {
         assertEquals(error, text, entriesPage.checkEntry());
     }
 
-    @Test(description = "Changing the fonts, sizes, colors")
+    @Test(description = "Changing the fonts, sizes, colors of the text printed")
     public void editEntry() {
         loginPage.openPage();
         loginPage.login(user, password);
@@ -37,7 +37,7 @@ public class EntryTest extends BaseTest {
     public Object[][] dairyText() {
         return new Object[][]{
                 {"The message was not published",
-                        "Es ist etwas Schönes, sein eigenes Bild im liebenden Auge zu erblicken."},
+                        "Es ist etwas Schones, sein eigenes Bild im liebenden Auge zu erblicken."},
         };
     }
 

@@ -56,7 +56,6 @@ public class BaseTest {
         } else if (browser.equals("firefox")) {
             WebDriverManager.firefoxdriver().setup();
             driver = new FirefoxDriver();
-            //TODO implement firefox opening
         }
         Configuration.baseUrl = System.getProperty("MONKKEE_URL", PropertyReader.getProperty("monkkee.url"));
         user = PropertyReader.getProperty("monkkee.user");
