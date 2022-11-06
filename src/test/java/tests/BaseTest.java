@@ -32,6 +32,9 @@ public class BaseTest {
     EditTextPage editTextPage;
     String user;
     String password;
+    String labelUnderline;
+    String labelBold;
+    String labelList;
 
     void closePopUpIfDisplayed() {
         log.debug("Start checking random message");
@@ -60,6 +63,9 @@ public class BaseTest {
         Configuration.baseUrl = System.getProperty("MONKKEE_URL", PropertyReader.getProperty("monkkee.url"));
         user = PropertyReader.getProperty("monkkee.user");
         password = PropertyReader.getProperty("monkkee.password");
+        labelUnderline = "Underline";
+        labelBold = "Bold";
+        labelList = "Insert/Remove Bulleted List";
 
         context.setAttribute("driver", driver);
 
@@ -78,7 +84,7 @@ public class BaseTest {
     @AfterMethod(alwaysRun = true, description = "Closing the browser")
     public void close() {
         if (driver != null) {
-           //   driver.quit();
+            //   driver.quit();
         }
     }
 }

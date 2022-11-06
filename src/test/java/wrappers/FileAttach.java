@@ -21,12 +21,11 @@ public class FileAttach {
     public void attach() {
         driver.findElement(By.cssSelector("[href=\"javascript:void('Image')\"]")).click();
         final List<WebElement> iframes = driver.findElements(By.tagName("iframe"));
-        //  System.out.println(driver.getPageSource());
         System.out.println(iframes.size() + "MINE");
         for (WebElement iframe : iframes) {
-            //  log.info(iframe.getAttribute("innerHTML"));
             System.out.println(iframe.getAttribute("innerHTML"));
         }
+
         driver.switchTo().defaultContent();
         driver.switchTo().frame(iframes.get(0));
         System.out.println(driver.getPageSource());

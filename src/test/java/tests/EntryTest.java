@@ -1,6 +1,5 @@
 package tests;
 
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.EditTextPage;
@@ -9,28 +8,32 @@ import static org.testng.AssertJUnit.assertEquals;
 
 public class EntryTest extends BaseTest {
 
-    @Test(dataProvider = "Entry dairy text", description = "Entry the info to the dairy")
+    @Test(dataProvider = "Entry dairy text", description = "Entry the info to the dairy", invocationCount = 3)
     public void publishInfo(String error, String text) {
         loginPage.openPage();
         loginPage.login(user, password);
         entriesPage.entryData();
         entriesPage.saveData();
-
         assertEquals(error, text, entriesPage.checkEntry());
     }
 
     @Test(description = "Changing the fonts, sizes, colors of the text printed")
-    public void editEntry() {
+    public void editText() {
         loginPage.openPage();
         loginPage.login(user, password);
         entriesPage.entryData();
         entriesPage.selectAll();
-        //TODO hide initialization into BaseTest
-        new EditTextPage(driver).createStyle(
-                "Underline", "Bold", "Insert/Remove Bulleted List");
-        new EditTextPage(driver).changeColor("Text Color", "Bright Blue");
-        new EditTextPage(driver).changeColor("Text Color", "Bright Blue");
+        new EditTextPage(driver).createStyle(labelUnderline, labelBold, labelList);
         new EditTextPage(driver).changeHeading("Heading 1");
+    }
+
+    @Test(description = "Changing the color of the text printed")
+    public void changeColor() {
+        loginPage.openPage();
+        loginPage.login(user, password);
+        entriesPage.entryData();
+        entriesPage.selectAll();
+        new EditTextPage(driver).changeColor("Text Color", "Bright Blue");
     }
 
     @DataProvider(name = "Entry dairy text")
@@ -47,9 +50,5 @@ public class EntryTest extends BaseTest {
         loginPage.login(user, password);
         entriesPage.switchToEntry();
         new EditTextPage(driver).attachFile();
-
     }
 }
-// new EditTextPage(driver).create
-//                ("Underline", "Bold", "Insert/Remove Bulleted List",
-//                        "Text Color", "Bright Blue", "Background Color", "Bright Silver");

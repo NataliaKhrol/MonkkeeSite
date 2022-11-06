@@ -8,6 +8,7 @@ public class Dropdown {
     WebDriver driver;
     String text;
 
+
     public Dropdown(WebDriver driver) {
         this.driver = driver;
         this.label = label;
@@ -16,8 +17,8 @@ public class Dropdown {
 
     public void chooseHeading(String label) {
         driver.findElement(By.cssSelector("[href=\"javascript:void('Paragraph Format')\"]")).click();
-        driver.switchTo().frame(1);
-        driver.findElement(By.xpath(String.format("//a[@title='%$']", label)));
+        driver.switchTo().frame(0);
+        driver.findElement(By.xpath(String.format("//a[@title='%s']", label)));
     }
 }
 

@@ -14,10 +14,10 @@ public class EditTextPage extends BasePage {
     }
 
     @Step("Change the style of the words")
-    public void createStyle(String label, String label2, String label3) {
-        new Option(label, driver).select();
-        new Option(label2, driver).select();
-        new Option(label3, driver).select();
+    public void createStyle(String labelUnderline, String labelBold, String labelList) {
+        new Option(labelUnderline, driver).select();
+        new Option(labelBold, driver).select();
+        new Option(labelList, driver).select();
     }
 
     @Step("Change the color of the words")

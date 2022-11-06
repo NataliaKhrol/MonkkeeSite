@@ -11,6 +11,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.PropertyReader;
 
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
@@ -21,7 +22,9 @@ public class BasePage {
     WebDriver driver;
     WebDriverWait wait;
 
+
     public static final String BASE_URL = "https://monkkee.com/en/";
+    String entry = PropertyReader.getProperty("monkkee.entry");
 
     public BasePage(WebDriver driver) {
 
@@ -34,6 +37,7 @@ public class BasePage {
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize(); //открывает браузер в полном окне
+
     }
 
   /*  public void closePopUpIfDisplayed() {
