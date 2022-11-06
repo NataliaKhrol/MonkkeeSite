@@ -4,7 +4,6 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import wrappers.ColorChooser;
 import wrappers.Dropdown;
-//import wrappers.FileAttach;
 import wrappers.FileAttach;
 import wrappers.Option;
 

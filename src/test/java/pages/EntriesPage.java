@@ -6,7 +6,6 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-
 public class EntriesPage extends BasePage {
 
     private By ENTRY_FIELD = By.cssSelector("[class=\"icon-plus\"]");
@@ -15,7 +14,6 @@ public class EntriesPage extends BasePage {
     private By BACK_BUTTON = By.cssSelector("[title=\"Back to overview\"]");
     private By ENTRY_AREA = By.cssSelector("[class=\"cke_toolbar cke_toolbar_last\"]");
     private By TEXT_PRINT = By.xpath("(//a[@class=\"entry\"])[2]");
-
 
     public EntriesPage(WebDriver driver) {
         super(driver);
@@ -42,7 +40,6 @@ public class EntriesPage extends BasePage {
     @Step("Select the printed text")
     public void selectAll() {
         driver.findElement(ENTRY_INFO).sendKeys(Keys.CONTROL + "a");
-        // element.sendKeys(Keys.CONTROL+"a");
     }
 
     @Step("Check that the new dairy is saved")
@@ -50,7 +47,4 @@ public class EntriesPage extends BasePage {
         String dairyEntry = driver.findElement(TEXT_PRINT).getText();
         return dairyEntry;
     }
-
-
 }
-//Отформатировать и переменные и собака тест убрать

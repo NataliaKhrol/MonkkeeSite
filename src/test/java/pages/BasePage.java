@@ -1,15 +1,10 @@
 package pages;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.extern.log4j.Log4j2;
-import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.PropertyReader;
 
@@ -21,7 +16,6 @@ import java.util.concurrent.TimeUnit;
 public class BasePage {
     WebDriver driver;
     WebDriverWait wait;
-
 
     public static final String BASE_URL = "https://monkkee.com/en/";
     String entry = PropertyReader.getProperty("monkkee.entry");
@@ -38,16 +32,5 @@ public class BasePage {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize(); //открывает браузер в полном окне
     }
-
-   /* public void closePopUpIfDisplayed() {
-        log.debug("Start checking random message");
-        if (driver.findElement(By.cssSelector("[class=\"modal-body\"]")).isDisplayed()) {
-            log.debug("Random popup is displayed");
-            new WebDriverWait(driver, Duration.ofSeconds(5))
-                    .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(),'Cancel')]"))).click();
-        } else {
-            log.debug("Random popup IS NOT displayed");
-        }
-    }*/
 }
 

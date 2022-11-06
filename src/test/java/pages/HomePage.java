@@ -6,7 +6,6 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.testng.Reporter;
 
 @Log4j2
 public class HomePage extends BasePage {
@@ -35,8 +34,6 @@ public class HomePage extends BasePage {
         return driver.findElement(SEARCH_RESULT).isDisplayed();
     }
 
-    //TODO remove comments
-
     @Step("Delete tags in the dairy entry")
     public void deleteTags() {
         driver.findElement(MANAGE_TAG).click();
@@ -46,14 +43,11 @@ public class HomePage extends BasePage {
     @Step("Retrieving alert message")
     public String alertMessage() {
         log.debug("Retrieving alert message");
-        //   driver.switchTo().alert().getText();
         Alert alert = wait.until(ExpectedConditions.alertIsPresent());
         String text = alert.getText();
         alert.dismiss();
         return text;
     }
-
-
 
     @Step("Create new tags in the dairy entry")
     public void createTag(String bb) {
@@ -65,9 +59,5 @@ public class HomePage extends BasePage {
     public String isCreated() {
         return driver.findElement(TAG_CHOICE).getText();
     }
-
-     // Alert alert = getWebDriver().switchTo().alert();
-    //  String alertText = alert.getText();
-    //  System.out.println(alertText);
 }
 

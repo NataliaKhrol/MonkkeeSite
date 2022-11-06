@@ -59,18 +59,6 @@ public class LoginPage extends BasePage {
         driver.findElement(LOGIN_BUTTON).click();
 
     }
-    /*  private boolean closePopUpIfDisplayed() {
-        log.debug("Start checking random message");
-        if (!driver.findElements(By.cssSelector("[class=\"modal-body\"]")).isEmpty()) {
-            log.debug("Random popup is displayed");
-            new WebDriverWait(driver, Duration.ofSeconds(5))
-                    .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(),'Cancel')]"))).click();
-            return true;
-        } else {
-            log.debug("Random popup IS NOT displayed");
-            return false;
-        }
-    }*/
 
     public boolean open() {
         return driver.findElement(MAIN_BUTTON).isDisplayed();
