@@ -3,7 +3,12 @@ package pages;
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 @Log4j2
 public class LoginPage extends BasePage {
@@ -27,13 +32,45 @@ public class LoginPage extends BasePage {
         driver.get(BASE_URL);
     }
 
-    @Step("Login by {email} and {password}")
+    @Step("Login by {email} and {password} preventing popup")
     public void login(String user, String password) {
+        loginFast(user, password);
+        try {//пытаемся понять произошел ли переход после кликлогин
+            new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOfElementLocated(MAIN_BUTTON));
+            log.debug("No Wild popup appears during login");
+        } catch (TimeoutException e){ // если переход не произошел, пытаемся закрыть окно
+            log.debug("Start checking wild popup");
+            if (!driver.findElements(By.cssSelector("[class=\"modal-body\"]")).isEmpty()) {
+                log.debug("Wild popup is displayed");
+                new WebDriverWait(driver, Duration.ofSeconds(5))
+                        .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(),'Cancel')]"))).click();
+                log.debug("Wild popup was closed");
+            } else {
+                log.warn("Wild popup was NOT displayed");
+            }
+        }
+    }
+
+    @Step("Login by {email} and {password}")
+    public void loginFast(String user, String password) {
         driver.findElement(ACCOUNT_BUTTON).click();
         driver.findElement(USER_ENTRY).sendKeys(user);
         driver.findElement(PASSWORD_ENTRY).sendKeys(password);
         driver.findElement(LOGIN_BUTTON).click();
+
     }
+    /*  private boolean closePopUpIfDisplayed() {
+        log.debug("Start checking random message");
+        if (!driver.findElements(By.cssSelector("[class=\"modal-body\"]")).isEmpty()) {
+            log.debug("Random popup is displayed");
+            new WebDriverWait(driver, Duration.ofSeconds(5))
+                    .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(),'Cancel')]"))).click();
+            return true;
+        } else {
+            log.debug("Random popup IS NOT displayed");
+            return false;
+        }
+    }*/
 
     public boolean open() {
         return driver.findElement(MAIN_BUTTON).isDisplayed();

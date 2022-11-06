@@ -13,7 +13,6 @@ public class LoginTest extends BaseTest {
     public void correctLogin() {
         loginPage.openPage();
         loginPage.login(user, password);
-     //   basePage.closePopUpIfDisplayed();
         assertTrue(loginPage.open(), "Login failed");
     }
 
@@ -21,8 +20,7 @@ public class LoginTest extends BaseTest {
             description = "Checking the authorization when the required fields are left unfilled")
     public void negativeAuthorization(String user, String password, String error) {
         loginPage.openPage();
-        loginPage.login(user, password);
-       // basePage.closePopUpIfDisplayed();
+        loginPage.loginFast(user, password);
         assertTrue(loginPage.failOpen(), error);
     }
 
@@ -38,16 +36,15 @@ public class LoginTest extends BaseTest {
         loginPage.openPage();
         loginPage.registrationCheck();
         assertTrue(loginPage.registration(), "Registration failed");
-
     }
 
     @DataProvider(name = "Data for negative authorization tests")
     public Object[][] loginData() {
         return new Object[][]{
                 {"", "", "There are necessary fields to be filled in"},
-                {"", "dfgzdfgzfdgzfv", "There are necessary fields to be filled in"},
+                {"", "incorrectPassword", "There are necessary fields to be filled in"},
                 {" ", " ", "There are necessary fields to be filled in"},
-                {"849846854", "", "There are necessary fields to be filled in"}
+                {"incorrectLogin", "", "There are necessary fields to be filled in"}
         };
     }
 }

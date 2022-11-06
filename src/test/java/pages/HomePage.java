@@ -1,9 +1,14 @@
 package pages;
 
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.Reporter;
 
+@Log4j2
 public class HomePage extends BasePage {
 
     private By SEARCH_FIELD = By.id("appendedInputButton");
@@ -38,9 +43,17 @@ public class HomePage extends BasePage {
         driver.findElement(DELETE_TAG).click();
     }
 
+    @Step("Retrieving alert message")
     public String alertMessage() {
-        return driver.switchTo().alert().getText();
+        log.debug("Retrieving alert message");
+        //   driver.switchTo().alert().getText();
+        Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+        String text = alert.getText();
+        alert.dismiss();
+        return text;
     }
+
+
 
     @Step("Create new tags in the dairy entry")
     public void createTag(String bb) {
@@ -53,10 +66,7 @@ public class HomePage extends BasePage {
         return driver.findElement(TAG_CHOICE).getText();
     }
 
-    public void feedMonkkee() {
-
-    }
-    // Alert alert = getWebDriver().switchTo().alert();
+     // Alert alert = getWebDriver().switchTo().alert();
     //  String alertText = alert.getText();
     //  System.out.println(alertText);
 }

@@ -9,6 +9,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
+        <encoding>UTF-8</encoding>
         <maven.compiler.target>11</maven.compiler.target>
         <maven.compiler.source>11</maven.compiler.source>
         <suiteXmlFile>src/test/resources/SmokeTest.xml</suiteXmlFile>

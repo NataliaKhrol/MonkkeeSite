@@ -37,10 +37,9 @@ public class BasePage {
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize(); //открывает браузер в полном окне
-
     }
 
-  /*  public void closePopUpIfDisplayed() {
+   /* public void closePopUpIfDisplayed() {
         log.debug("Start checking random message");
         if (driver.findElement(By.cssSelector("[class=\"modal-body\"]")).isDisplayed()) {
             log.debug("Random popup is displayed");

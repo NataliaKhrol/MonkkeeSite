@@ -26,11 +26,3 @@ public class SupportPage extends BasePage {
         return driver.findElement(PAGE_LOGO).isDisplayed();
     }
 }
-
-//  WebElement element = wait.until(ExpectedConditions.elementToBeClickable());
-// element.click();
-            /*  Set<String> allWindowHandles = driver.getWindowHandles();
-        ArrayList<String> tabs = new ArrayList<String>(allWindowHandles);
-        System.out.println("No. of tabs: " + tabs.size());
-
-//driver.switchTo().window()*/

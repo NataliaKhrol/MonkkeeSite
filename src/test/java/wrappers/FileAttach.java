@@ -11,11 +11,9 @@ import java.util.List;
 @Log4j2
 public class FileAttach {
     WebDriver driver;
-    String label;
 
     public FileAttach(WebDriver driver) {
         this.driver = driver;
-        this.label = label;
     }
 
     public void attach() {

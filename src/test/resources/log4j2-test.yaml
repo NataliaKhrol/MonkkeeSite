@@ -31,6 +31,18 @@ Configuration:
         additivity: false
         AppenderRef:
           ref: fileAppender
+      -
+        name: pages
+        level: DEBUG
+        additivity: false
+        AppenderRef:
+          ref: consoleAppender
+      -
+        name: tests
+        level: DEBUG
+        additivity: false
+        AppenderRef:
+          ref: consoleAppender
     Root:
       level: INFO
       AppenderRef:
